@@ -33,6 +33,7 @@ public class Catalogue {
       if (temp != null && temp.showAvaliblebilety()) {
         avalibles[i] = temp;  // lopper pladserne igenne, ogm lægger ind i avalibles arrayet hvis der ligge rnoget der.
       }
+    }
       return avalibles;
     }
   }
