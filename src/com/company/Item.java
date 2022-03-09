@@ -4,6 +4,7 @@ public class Item {
 
   private String catagory;
   private String item;
+  private boolean isAvailabel;
 
 
   public String toString() {
@@ -13,6 +14,7 @@ public class Item {
   public Item(String category, String item) {
     this.catagory = category;
     this.item = item;
+    isAvailabel = true;
   }
 
 
