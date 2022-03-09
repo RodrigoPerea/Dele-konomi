@@ -59,14 +59,18 @@ public class Main {
                     for (int i = 0; i < availableItems.length; i++) {
                         System.out.println(availableItems[i]);
                     }
-                    /*
+
                 } else if (choice == 3) { // Add new Item to catalogue
                     // Hardcoded values for new Item
                     catalogue.addItem(new Item("Sport", "Tennisbolde"));
+                //System.out.println(Arrays.toString(catalogue.getFullList()));  //HUSK: Arrays.toString for at kunne printe
+
                 } else if (choice == 4) { // make item unavailable
                     // Hardcoded search criteria Skateboard
                     Item found = catalogue.findItem("Skateboard");
                     catalogue.borrowItem(found);
+
+                    /*
                 } else if (choice == 5) { // make item available again
                     // Hardcoded search criteria Skateboard
                     Item found = catalogue.findItem("Skateboard");
