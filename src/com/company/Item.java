@@ -16,6 +16,8 @@ public class Item {
     this.item = item;
     isAvailabel = true;
   }
-
+public boolean showAvaliblebilety(){
+    return isAvailabel;
+}
 
 }
