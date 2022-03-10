@@ -20,20 +20,35 @@ public class Catalogue {
     /*
     while (getFullList(){
       if (items==null);
-
     }*/
     return items;
   }
-
   public Item[] getAvailableItems() {
-    Item[] avalibles = new Item[items.length];
-    for (int i = 0; i < items.length; i++) {
-
-      Item temp = items[i];  //tempore variabel
-      if (temp != null && temp.showAvaliblebilety()) {
-        avalibles[i] = temp;  // lopper pladserne igenne, ogm lægger ind i avalibles arrayet hvis der ligge rnoget der.
+    Item[] availables = new Item[items.length];
+    for(int i = 0; i < items.length; i++) {
+      Item temp = items[i];
+      if (temp != null && temp.showAvailability()) {
+        availables[i] = temp;
       }
     }
-      return avalibles;
+    return availables;
+  }
+
+  public Item findItem(String searchName) {
+    for(int i = 0; i < items.length; i++) {
+      Item temp = items[i];
+      if (temp != null && temp.getDescription().equals(searchName)) {
+        return temp;
+      }
     }
+    return null;
+  }
+
+  public void borrowItem(Item found) {
+    found.makeUnavailable();
+  }
+
+  public void returnItem(Item found) {
+    found.makeAvailable();
+  }
   }
