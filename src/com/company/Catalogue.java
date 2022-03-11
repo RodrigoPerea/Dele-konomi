@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Catalogue {
 
   private Item[] items;
@@ -20,25 +18,24 @@ public class Catalogue {
   //TODO: loope arrayes igennem, og ikke skrive nget ud hvis det er null.
   public void getFullList() {
     //ArrayList<Item> newItem; Sætter den i en array liste, hust at lave den til eks. array[] istedet for void, så den kan returne
-    for (int i = 0; i < items.length; i++)
-    {
-     // newItem.add(items[i]); // laves til en ny array liste
-      if(items[i] != null){
+    for (int i = 0; i < items.length; i++) {
+      // newItem.add(items[i]); // laves til en ny array liste
+      if (items[i] != null) {
         System.out.println(items[i]);
-      //if(items.equals(null))
-       //return new Item[i];
+        //if(items.equals(null))
+        //return new Item[i];
       }
-       // System.out.print(items[i]);
-        //return newItem; // udskriv den ye arrayliste.
-      }
-
+      // System.out.print(items[i]);
+      //return newItem; // udskriv den ye arrayliste.
     }
 
-    //return items != null;
+  }
+
+  //return items != null;
 
   public Item[] getAvailableItems() {
     Item[] availables = new Item[items.length];
-    for(int i = 0; i < items.length; i++) {
+    for (int i = 0; i < items.length; i++) {
       Item temp = items[i];
       if (temp != null && temp.showAvailability()) {
         availables[i] = temp;
@@ -48,7 +45,7 @@ public class Catalogue {
   }
 
   public Item findItem(String searchName) {
-    for(int i = 0; i < items.length; i++) {
+    for (int i = 0; i < items.length; i++) {
       Item temp = items[i];
       if (temp != null && temp.getDescription().equals(searchName)) {
         return temp;
@@ -64,4 +61,4 @@ public class Catalogue {
   public void returnItem(Item found) {
     found.makeAvailable();
   }
-  }
+}

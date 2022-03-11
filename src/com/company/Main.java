@@ -17,13 +17,21 @@ public class Main {
        System.out.println("Retunering af " + item + " er nu registeret. Tak for din retunering!");
 
        }
+       public void addNewItemToCataloug(Catalogue catalogue){
+           System.out.println("Hvilken kategori er vare i?");
+           String kategori = key.nextLine();
+           System.out.println("Hvilken vare?");
+           String vare = key.nextLine();
+           System.out.println("Vores team gennemgår nu dine vare, og de vil være tilgængelig for udlån in den for 2 timer.");
+           Item newItem = new Item(kategori, vare);
+           catalogue.addItem(newItem);
+       }
 
     public void makeItemUnavailable(Catalogue catalogue){
         System.out.println("Hvad vil du gerne låne?");
         String item = key.nextLine();
         Item found = catalogue.findItem(item);
         System.out.println("Dit lån af " + item + " er nu registreret. Go fornøjelse!");
-
         catalogue.borrowItem(found);
 
     }
@@ -37,14 +45,22 @@ public class Main {
         Item item1 = new Item("Sport", "Skateboard");
         catalogue.addItem(item1);
         //System.out.println(item1);
-        Item item2 = new Item("Sport", "Mountainbike");
+        Item item2 = new Item("Transport", "Cykel");
         catalogue.addItem(item2);
         //System.out.println(item2);
         Item item3 = new Item("Tøj", "Smoking");
         catalogue.addItem(item3);
         //System.out.println(item3);
-        Item item4 = new Item("Tøj", "Pailletkjole");
+        Item item4 = new Item("Tøj", "Jeans");
         catalogue.addItem(item4);
+        Item item5 = new Item("Sport", "Ski");
+        catalogue.addItem(item5);
+        Item item6 = new Item("Transport", "Bil");
+        catalogue.addItem(item6);
+        Item item7 = new Item("Tøj", "Kjole");
+        catalogue.addItem(item7);
+        Item item8 = new Item("Transport", "Båd");
+
         //System.out.println(item4);
         //System.out.println(Arrays.toString(catalogue.getFullList()));
 
@@ -58,12 +74,13 @@ public class Main {
         System.out.println("4. Lån ting");
         System.out.println("5. Aflever ting");
 
-        // Read user choice
+
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
-        // Decide what to do based on user choice
-        if (choice == 1) { // get all items in cataloque
+
+        if (choice == 1) {
+            System.out.println("Følgende ting kan lånes:\n");// get all items in cataloque
             //Item[] allItems = catalogue.getFullList();
             //for (int i = 0; i < allItems.length; i++) {
                 //System.out.println(allItems[i]);
@@ -79,7 +96,8 @@ public class Main {
 
         } else if (choice == 3) { // Add new Item to catalogue
             // Hardcoded values for new Item
-            catalogue.addItem(new Item("Sport", "Tennisbolde"));
+            //catalogue.addItem(new Item("Sport", "Tennisbolde"));
+            obj.addNewItemToCataloug(catalogue);
             //System.out.println(Arrays.toString(catalogue.getFullList()));  //HUSK: Arrays.toString for at kunne printe
 
         } else if (choice == 4) {

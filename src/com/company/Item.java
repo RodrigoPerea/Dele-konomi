@@ -8,7 +8,7 @@ public class Item {
   private boolean isAvailable;
 
   public String toString() {
-    return catagory + " " + description + " " + isAvailable;
+    return "Kategori: "+catagory + " "  +"\nVare: " + description + " " +"\nLedighed: " + isAvailable + "\n";
   }
   public String getDescription() {
     return description;
