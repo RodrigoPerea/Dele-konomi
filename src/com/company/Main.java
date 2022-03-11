@@ -7,9 +7,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+   // Scanner key = new Scanner(System.in);
+    /*
+    public void makeItemUnavailable(Catalogue catalogue){
+        String item = key.nextLine();
+        Item found = catalogue.findItem(item);
+        System.out.println(found);
+        catalogue.borrowItem(found);
+        System.out.println(found);
+    }
+
+     */
+
 
     public static void main(String[] args) {
-
+       // Main obj = new Main();
+        Scanner key = new Scanner(System.in);
         // Exercise Part 1: Create Catalogue and Item classes
         // Create a catalogue with size 10
         Catalogue catalogue = new Catalogue(10);
@@ -35,6 +48,7 @@ public class Main {
         // Exercise Part 2: Make program with user input instead of hardcoded values
         // Make program able to show menu and handles user choices in loop
         // Ask user what user wants to do
+
         System.out.println("Hvad kunne du tænke dig?");
         System.out.println("1. Se hele kataloget");
         System.out.println("2. Se hvad der er ledigt");
@@ -48,10 +62,11 @@ public class Main {
 
         // Decide what to do based on user choice
         if (choice == 1) { // get all items in cataloque
-            Item[] allItems = catalogue.getFullList();
-            for (int i = 0; i < allItems.length; i++) {
-                System.out.println(allItems[i]);
-            }
+            //Item[] allItems = catalogue.getFullList();
+            //for (int i = 0; i < allItems.length; i++) {
+                //System.out.println(allItems[i]);
+            catalogue.getFullList();
+
 
 
         } else if (choice == 2) { // get available items in cataloque
@@ -65,11 +80,14 @@ public class Main {
             catalogue.addItem(new Item("Sport", "Tennisbolde"));
             //System.out.println(Arrays.toString(catalogue.getFullList()));  //HUSK: Arrays.toString for at kunne printe
 
-        } else if (choice == 4) { // make item unavailable
-            // Hardcoded search criteria Skateboard
-            Item found = catalogue.findItem("Skateboard");
+        } else if (choice == 4) {
+            String item = key.nextLine();
+            Item found = catalogue.findItem(item);
+            System.out.println(found);
             catalogue.borrowItem(found);
+            System.out.println(found);
 
+            //obj.makeItemUnavailable(catalogue);
 
                 } else if (choice == 5) { // make item available again
                     // Hardcoded search criteria Skateboard
