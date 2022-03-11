@@ -8,7 +8,10 @@ import java.util.Scanner;
 
 public class Main {
     Scanner key = new Scanner(System.in);
-
+    public void terminateProgramme() {
+        System.out.println("Afslutter program");
+        System.exit(0);
+    }
     public void makeItemavAilableAgain(Catalogue catalogue) {
         System.out.println("Hvad skal du aflevere tilbage?");
         String item = key.nextLine();
@@ -68,17 +71,19 @@ public class Main {
 
 
         ///////////////////////////////////////////////
-
-        System.out.println("Hvad kunne du tænke dig?");
+        int choice = -1;
+        while (choice != 0)
+            System.out.println("Hvad kunne du tænke dig?");
         System.out.println("1. Se hele kataloget");
         System.out.println("2. Se hvad der er ledigt");
         System.out.println("3. Opret ting til udlån");
         System.out.println("4. Lån ting");
         System.out.println("5. Aflever ting");
+        System.out.println("0. Afslut");
 
 
         Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+         choice = scanner.nextInt();
 
 
         if (choice == 1) {
@@ -106,17 +111,14 @@ public class Main {
         } else if (choice == 4) {
             obj.makeItemUnavailable(catalogue);
 
-                } else if (choice == 5) {
+        } else if (choice == 5) {
             obj.makeItemavAilableAgain(catalogue);
 
-                } else { // invalid choice
+        } else if (choice == 0) {
+            obj.terminateProgramme();
+
+        }
+                }  else { // invalid choice
                     System.out.println("Du foretog et ugyldigt valg.");
                 }
             }
-        }
-
-
-
-
-
-
