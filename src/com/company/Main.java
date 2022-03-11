@@ -7,27 +7,33 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-   // Scanner key = new Scanner(System.in);
-    /*
+   Scanner key = new Scanner(System.in);
+
+   public void makeItemavAilableAgain(Catalogue catalogue) {
+       System.out.println("Hvad skal du aflevere tilbage?");
+       String item = key.nextLine();
+       Item found = catalogue.findItem(item);
+      catalogue.returnItem(found);
+       System.out.println("Retunering af " + item + " er nu registeret. Tak for din retunering!");
+
+       }
+
     public void makeItemUnavailable(Catalogue catalogue){
+        System.out.println("Hvad vil du gerne låne?");
         String item = key.nextLine();
         Item found = catalogue.findItem(item);
-        System.out.println(found);
+        System.out.println("Dit lån af " + item + " er nu registreret. Go fornøjelse!");
+
         catalogue.borrowItem(found);
-        System.out.println(found);
+
     }
-
-     */
-
-
     public static void main(String[] args) {
-       // Main obj = new Main();
+        Main obj = new Main();
         Scanner key = new Scanner(System.in);
-        // Exercise Part 1: Create Catalogue and Item classes
-        // Create a catalogue with size 10
+
         Catalogue catalogue = new Catalogue(10);
 
-        //Create items and add to catalogue
+
         Item item1 = new Item("Sport", "Skateboard");
         catalogue.addItem(item1);
         //System.out.println(item1);
@@ -44,10 +50,6 @@ public class Main {
 
 
         ///////////////////////////////////////////////
-
-        // Exercise Part 2: Make program with user input instead of hardcoded values
-        // Make program able to show menu and handles user choices in loop
-        // Ask user what user wants to do
 
         System.out.println("Hvad kunne du tænke dig?");
         System.out.println("1. Se hele kataloget");
@@ -81,18 +83,11 @@ public class Main {
             //System.out.println(Arrays.toString(catalogue.getFullList()));  //HUSK: Arrays.toString for at kunne printe
 
         } else if (choice == 4) {
-            String item = key.nextLine();
-            Item found = catalogue.findItem(item);
-            System.out.println(found);
-            catalogue.borrowItem(found);
-            System.out.println(found);
+            obj.makeItemUnavailable(catalogue);
 
-            //obj.makeItemUnavailable(catalogue);
+                } else if (choice == 5) {
+            obj.makeItemavAilableAgain(catalogue);
 
-                } else if (choice == 5) { // make item available again
-                    // Hardcoded search criteria Skateboard
-                    Item found = catalogue.findItem("Skateboard");
-                    catalogue.returnItem(found);
                 } else { // invalid choice
                     System.out.println("Du foretog et ugyldigt valg.");
                 }
