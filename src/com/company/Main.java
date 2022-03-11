@@ -8,10 +8,16 @@ import java.util.Scanner;
 
 public class Main {
     Scanner key = new Scanner(System.in);
+
     public void terminateProgramme() {
         System.out.println("Afslutter program");
         System.exit(0);
     }
+
+    public void newLine() {
+        System.out.println();
+    }
+
     public void makeItemavAilableAgain(Catalogue catalogue) {
         System.out.println("Hvad skal du aflevere tilbage?");
         String item = key.nextLine();
@@ -29,6 +35,7 @@ public class Main {
         System.out.println("Vores team gennemgår nu dine vare, og de vil være tilgængelig for udlån in den for 2 timer.");
         Item newItem = new Item(kategori, vare);
         catalogue.addItem(newItem);
+
     }
 
     public void makeItemUnavailable(Catalogue catalogue) {
@@ -37,6 +44,7 @@ public class Main {
         Item found = catalogue.findItem(item);
         System.out.println("Dit lån af " + item + " er nu registreret. Go fornøjelse!");
         catalogue.borrowItem(found);
+
 
     }
 
@@ -72,8 +80,9 @@ public class Main {
 
         ///////////////////////////////////////////////
         int choice = -1;
-        while (choice != 0)
-            System.out.println("Hvad kunne du tænke dig?");
+        //while (choice != 0)
+
+        System.out.println("Hvad kunne du tænke dig?");
         System.out.println("1. Se hele kataloget");
         System.out.println("2. Se hvad der er ledigt");
         System.out.println("3. Opret ting til udlån");
@@ -92,6 +101,8 @@ public class Main {
             //for (int i = 0; i < allItems.length; i++) {
             //System.out.println(allItems[i]);
             catalogue.getFullList();
+
+
 
 
         } else if (choice == 2) { // get available items in cataloque
@@ -117,8 +128,10 @@ public class Main {
         } else if (choice == 0) {
             obj.terminateProgramme();
 
+
+        } else {
+            System.out.println("Du foretog et ugyldigt valg.");
         }
-                }  else { // invalid choice
-                    System.out.println("Du foretog et ugyldigt valg.");
-                }
-            }
+    }
+}
+
