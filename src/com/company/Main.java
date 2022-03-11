@@ -7,27 +7,28 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-   Scanner key = new Scanner(System.in);
+    Scanner key = new Scanner(System.in);
 
-   public void makeItemavAilableAgain(Catalogue catalogue) {
-       System.out.println("Hvad skal du aflevere tilbage?");
-       String item = key.nextLine();
-       Item found = catalogue.findItem(item);
-      catalogue.returnItem(found);
-       System.out.println("Retunering af " + item + " er nu registeret. Tak for din retunering!");
+    public void makeItemavAilableAgain(Catalogue catalogue) {
+        System.out.println("Hvad skal du aflevere tilbage?");
+        String item = key.nextLine();
+        Item found = catalogue.findItem(item);
+        catalogue.returnItem(found);
+        System.out.println("Retunering af " + item + " er nu registeret. Tak for din retunering!");
 
-       }
-       public void addNewItemToCataloug(Catalogue catalogue){
-           System.out.println("Hvilken kategori er vare i?");
-           String kategori = key.nextLine();
-           System.out.println("Hvilken vare?");
-           String vare = key.nextLine();
-           System.out.println("Vores team gennemgår nu dine vare, og de vil være tilgængelig for udlån in den for 2 timer.");
-           Item newItem = new Item(kategori, vare);
-           catalogue.addItem(newItem);
-       }
+    }
 
-    public void makeItemUnavailable(Catalogue catalogue){
+    public void addNewItemToCataloug(Catalogue catalogue) {
+        System.out.println("Hvilken kategori er vare i?");
+        String kategori = key.nextLine();
+        System.out.println("Hvilken vare?");
+        String vare = key.nextLine();
+        System.out.println("Vores team gennemgår nu dine vare, og de vil være tilgængelig for udlån in den for 2 timer.");
+        Item newItem = new Item(kategori, vare);
+        catalogue.addItem(newItem);
+    }
+
+    public void makeItemUnavailable(Catalogue catalogue) {
         System.out.println("Hvad vil du gerne låne?");
         String item = key.nextLine();
         Item found = catalogue.findItem(item);
@@ -35,11 +36,12 @@ public class Main {
         catalogue.borrowItem(found);
 
     }
+
     public static void main(String[] args) {
         Main obj = new Main();
         Scanner key = new Scanner(System.in);
 
-        Catalogue catalogue = new Catalogue(10);
+        Catalogue catalogue = new Catalogue(1000);
 
 
         Item item1 = new Item("Sport", "Skateboard");
@@ -83,14 +85,15 @@ public class Main {
             System.out.println("Følgende ting kan lånes:\n");// get all items in cataloque
             //Item[] allItems = catalogue.getFullList();
             //for (int i = 0; i < allItems.length; i++) {
-                //System.out.println(allItems[i]);
+            //System.out.println(allItems[i]);
             catalogue.getFullList();
 
 
-
         } else if (choice == 2) { // get available items in cataloque
+
             Item[] availableItems = catalogue.getAvailableItems();
             for (int i = 0; i < availableItems.length; i++) {
+
                 System.out.println(availableItems[i]);
             }
 
